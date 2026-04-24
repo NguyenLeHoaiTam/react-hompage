@@ -1,57 +1,28 @@
-import './App.css';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div className="container">
+    <BrowserRouter>
 
-      {/* HEADER */}
-      <header className="header">
-        <h1>Shop Thực Phẩm Chức Năng</h1>
-        <nav>
-          <a href="#">Trang chủ</a>
-          <a href="#">Sản phẩm</a>
-          <a href="#">Liên hệ</a>
-        </nav>
-      </header>
+      {/* HEADER MENU */}
+      <nav className="header">
+        <Link to="/">Trang chủ</Link>
+        <Link to="/about">Giới thiệu</Link>
+        <Link to="/contact">Liên hệ</Link>
+      </nav>
 
-      {/* BANNER */}
-      <div className="banner">
-        <h2>Chăm sóc sức khỏe mỗi ngày</h2>
-        <p>Uy tín - Chất lượng - Giá tốt</p>
-      </div>
+      {/* ROUTES */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
 
-      {/* DANH SÁCH SẢN PHẨM */}
-      <main className="product-list">
-
-        <div className="product">
-          <img src="https://via.placeholder.com/150" alt="sp1" />
-          <h3>Vitamin C</h3>
-          <p>Giá: 150.000đ</p>
-          <button>Mua</button>
-        </div>
-
-        <div className="product">
-          <img src="https://via.placeholder.com/150" alt="sp2" />
-          <h3>Omega 3</h3>
-          <p>Giá: 200.000đ</p>
-          <button>Mua</button>
-        </div>
-
-        <div className="product">
-          <img src="https://via.placeholder.com/150" alt="sp3" />
-          <h3>Collagen</h3>
-          <p>Giá: 300.000đ</p>
-          <button>Mua</button>
-        </div>
-
-      </main>
-
-      {/* FOOTER */}
-      <footer className="footer">
-        <p>© 2026 - Bài tập React</p>
-      </footer>
-
-    </div>
+    </BrowserRouter>
   );
 }
 
